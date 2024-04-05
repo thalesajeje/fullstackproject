@@ -1,10 +1,10 @@
 import React from "react";
-import './Button.css';
+import './Button.scss';
 
 const Button = props => {
     return(
         <div className="Button">
-            <button onClick={ props.onclick}>{ props.title }</button>
+            <button onClick={ props.onClick}>{ props.title }</button>
         </div>
     );
 }

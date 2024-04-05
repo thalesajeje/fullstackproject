@@ -1,11 +1,21 @@
 const express = require("express");
-const EntryController = require("./controllers/EntryController");
+const CategoryController = require("./controllers/CategoryController");
+const ItemController = require("./controllers/ItemController");
 
 const router = express.Router();
 
-router.get('/entries', EntryController.index);
-router.post('/entries', EntryController.store);
-router.patch('/entries/:entry', EntryController.update);
-router.delete('/entries/:entry', EntryController.destroy);
+// Category routes
+router.get("/categories", CategoryController.index);
+router.post("/categories", CategoryController.store);
+router.patch("/categories/:category_id", CategoryController.update);
+router.delete("/categories/:category_id", CategoryController.destroy);
+
+// Item routes
+router.get("/items", ItemController.index);
+router.post("/items", ItemController.store);
+router.patch("/items/:item_id", ItemController.update);
+router.delete("/items/:item_id", ItemController.destroy);
 
 module.exports = router;
+
+
