@@ -11,13 +11,23 @@ import AddCategoryForm from './components/FormComponents/AddForm/AddCategoryForm
 import EditCategoryForm from './components/FormComponents/EditForm/EditCategoryForm';
 import CategoriesTable from './components/TableComponents/Table/CategoriesTable';
 
+import Button from './components/FormComponents/Button/Button';
+
 function Home() {
   return (
     <div>
       <h2>Home</h2>
+      <Link to="/items" style={{ width: '40px' }}>
+        <Button title="Manage Items" />
+      </Link>
+      <br/>
+      <Link to="/categories" style={{ width: '40px' }}>
+        <Button title="Manage Categories" />
+      </Link>
     </div>
   );
 }
+
 
 function Categories() {
     const [categories, setCategories] = useState([]);
@@ -157,17 +167,21 @@ function Error() {
 function App() {
   return (
     <Router>
-      <nav style={{ margin: 10 }}>
-        <Link to="/" style={{ padding: 5 }}>Home</Link>
-        <Link to="/items" style={{ padding: 5 }}>Items</Link>
-        <Link to="/categories" style={{ padding: 5 }}>Categories</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/items" element={<Items />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <div className="App">
+        <div className="App-nav">
+          <Link to="/">Home</Link>
+          <Link to="/items">Items</Link>
+          <Link to="/categories">Categories</Link>
+        </div>
+        <div className="App-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/items" element={<Items />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </div>
+      </div>
     </Router>
   );
 }
